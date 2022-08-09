@@ -1,0 +1,16 @@
+- name: OCP4 Cluster Resource CPU and Memory and Disk Check
+  hosts: all
+  tasks:
+    - name: CPU Check
+      shell: cat /proc/cpuinfo
+      register: cpu
+    - debug: var=cpu.stdout_lines
+
+    - name: memory check shell
+      shell: cat /proc/meminfo|grep Total
+      register: mem 
+    - debug: var=mem.stdout_lines
+     
+    - name: disk capacity check
+      ansible.builtin.debug:
+        msg: "Total Disk {{ ansible_facts['devices'] }}"
