@@ -11,4 +11,3 @@
         src: 03-01.myservice.yml
         namespace: "{{ project_name }}"
         state: present
-        kubeconfig: /root/ocp4/auth/kubeconfig
